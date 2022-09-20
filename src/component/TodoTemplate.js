@@ -11,7 +11,7 @@ const TodoTemplateWrapper = styled.div`
 	position: relative;
 	margin: 0 auto;
 	margin-top: 96px;
-	margin-bottom: 32px;
+	margin-bottom: 96px;
 	display: flex;
 	flex-direction: column;
 	background: #fff;
