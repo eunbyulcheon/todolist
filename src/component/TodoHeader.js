@@ -4,13 +4,21 @@ import styled from 'styled-components';
 
 const TodoHeader = () => {
 	const todos = useTodoState();
-	console.log(todos);
+	const undoneTasks = todos.filter((todo) => !todo.done);
+
+	const today = new window.Date();
+	const dateString = today.toLocaleDateString('ko-KR', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+	const dayName = today.toLocaleDateString('ko-KR', { weekday: 'long' });
 
 	return (
 		<Container>
-			<Date>2022년 9월 20일</Date>
-			<Day>화요일</Day>
-			<TasksLeft>할 일 2개 남음</TasksLeft>
+			<Date>{dateString}</Date>
+			<Day>{dayName}</Day>
+			<TasksLeft>할 일 {undoneTasks.length}개 남음</TasksLeft>
 		</Container>
 	);
 };
