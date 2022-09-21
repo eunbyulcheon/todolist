@@ -3,20 +3,20 @@ import { MdAdd } from 'react-icons/md';
 import styled, { css } from 'styled-components';
 
 const TodoCreate = () => {
-	const [open, setOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
-	const onToggle = () => setOpen(!open);
+	const onToggle = () => setIsOpen(!isOpen);
 
 	return (
 		<>
-			{open && (
+			{isOpen && (
 				<InsertFormPositioner>
 					<InsertForm>
 						<Input autoFocus placeholder="할 일을 입력 후, Enter 를 누르세요" />
 					</InsertForm>
 				</InsertFormPositioner>
 			)}
-			<CircleBtn open={open} onClick={onToggle}>
+			<CircleBtn isOpen={isOpen} onClick={onToggle}>
 				<MdAdd />
 			</CircleBtn>
 		</>
@@ -51,7 +51,7 @@ const CircleBtn = styled.button`
 
 	transition: 0.125s all ease-in;
 	${(props) =>
-		props.open &&
+		props.isOpen &&
 		css`
 			background: #ff6b6b;
 			&:hover {
